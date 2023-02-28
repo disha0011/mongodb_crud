@@ -1,0 +1,21 @@
+const express=require("express");
+const app=express();
+const port=1010;
+
+const getData=require("./getData/getData");
+app.use("/getData",getData);
+
+app.listen(port,()=>{
+    console.log(`server listen successfully: ${port}`);
+});
+
+//getdata.js
+
+
+const express=require("express");
+const getData=express.Router();
+
+getData.get("/",(req,res)=>{
+    res.json({message:"authorized user inside module"});
+    });
+module.exports=getData;
